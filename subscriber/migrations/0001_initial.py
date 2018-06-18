@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Subcriber',
+            name='Subscriber',
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
                 ('match', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='match.Match')),

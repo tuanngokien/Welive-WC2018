@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c!%#zvn9c6#1ri*sh0#8@zh)b#e9v)0!$wsnrv4kbyex^kq8(('
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'fcf21b32.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'fa2fecbe.ngrok.io']
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'league',
     'team',
     'match',
-    'subcriber',
+    'subscriber',
+    'webhook',
 ]
 
 MIDDLEWARE = [

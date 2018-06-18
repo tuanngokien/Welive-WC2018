@@ -1,21 +1,26 @@
-from fbmq import Page
+from fbmq import Page, Template
 import os
-from django.http import JsonResponse, HttpResponse
-from django.utils import timezone
+from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from match.helpers import add_day
-from match.models import Match
 
-ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
-SECRET_KEY = os.environ["SECRET_KEY"]
+ACCESS_TOKEN = os.environ["FB_ACCESS_TOKEN"]
+SECRET_KEY = os.environ["FB_SECRET_KEY"]
 
 page = Page(ACCESS_TOKEN)
+
+page.show_starting_button("GETTING_STARTED")
+
+@page.callback(['GETTING_STARTED'])
+def start_callback(payload, event):
+    first_name = page.get_user_profile(event.sender_id).get("first_name", "Anonymous")
+    page.send(event.sender_id, "Chào {}, vui lòng chọn các chức năng của bot trong MENU nhé !".format(first_name))
 
 @csrf_exempt
 def fb_webhook(request):
     if request.method == "GET":
-        return HttpResponse(request.GET.get("hub.challenge"))
+        if SECRET_KEY == request.GET.get('hub.verify_token'):
+            return HttpResponse(request.GET.get("hub.challenge"))
     else:
         page.handle_webhook(request.body)
     return HttpResponse("")
@@ -23,23 +28,5 @@ def fb_webhook(request):
 
 @page.handle_message
 def message_handler(event):
-    """:type event: fbmq.Event"""
-    sender_id = event.sender_id
-    message = event.message_text
-    date = timezone.localtime().date()
-    if message == "tomorow":
-        date = add_day(date , 1)
-    elif message == "yesterday":
-        date = add_day(date, -1)
-    matches = '\n'.join([str(match) for match in Match.objects.filter_date(date)])
-    print(sender_id)
-    page.send(sender_id, matches)
-    return HttpResponse("")
-
-    # print(request)
-    # if request.method == "GET":
-    #     verify_token = request.GET.get('hub.verify_token')
-    #     if SECRET_KEY == verify_token:
-    #         return HttpResponse(request.GET.get('hub.challenge'))
-    # else:
-    #     print(request.body)
+    if not event.quick_reply:
+        page.send(event.sender_id, "Vui lòng chọn chức năng trong phần Menu nhé 😅")
