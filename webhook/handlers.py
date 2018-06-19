@@ -18,7 +18,9 @@ def handle_subscribe_match(action, event):
     subcriber, created = Subscriber.objects.get_or_create(subscriber_id = event.sender_id, first_name = first_name, match_id = match_id)
     if created:
         message = "Đăng ký theo dõi trận {} thành công ️🏆️🏆️🏆".format(match.scoreboard(score_included=False))
-        page.send(event.sender_id, message)
+    else:
+        message = "Bạn đã đăng ký theo dõi rồi mà :) ️🏆️🏆️🏆".format(match.scoreboard(score_included=False))
+    page.send(event.sender_id, message)
 
 @page.callback(["UNSUBSCRIBE_MATCH_\d+"])
 def handle_unsubscribe_match(action, event):
@@ -27,10 +29,11 @@ def handle_unsubscribe_match(action, event):
     try:
         subcriber = Subscriber.objects.get(subscriber_id = event.sender_id, match_id = match_id)
     except Subscriber.DoesNotExist:
-        return
+        message = "Bạn dang không theo dõi trận {} :)".format(match.scoreboard())
     else:
         subcriber.delete()
         message = "Bỏ theo dõi trận {} thành công :D".format(match.scoreboard())
+    finally:
         page.send(event.sender_id, message)
 
 

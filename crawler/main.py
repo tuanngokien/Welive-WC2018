@@ -105,7 +105,6 @@ class MatchCrawler:
                         curr_side_score = int(match.get("match_awayteam_score"))
                     if len([e for e in goal_events if e.get(scorer_side, "") != ""]) > curr_side_score:
                         continue
-
                 self.match_events.append({
                     "match_id" : match_id,
                     "event_type" : event_type,
@@ -115,12 +114,10 @@ class MatchCrawler:
     def save_to_db(self):
         logger.info("Saving matches to database")
         for match in self.match_infos:
-            id = match["id"]
-            match.pop("id")
+            id = match.pop("id")
             saved_match = Match.objects.update_or_create(id = id, defaults=match)
 
         for event in self.match_events:
-            print(event)
             saved_event = MatchEvent.objects.create(**event)
 
         return True
