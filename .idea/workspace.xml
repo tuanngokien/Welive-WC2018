@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db96b0c1-34bf-46b3-aa6e-aff5904a6a88" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawl.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/welive/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/welive/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/welive/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="129" column="44" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+            <state relative-caret-position="391">
+              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -122,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crawl.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="crawl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crawl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="7" column="45" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="45" />
+            <state relative-caret-position="285">
+              <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -225,12 +224,12 @@
         <option value="$PROJECT_DIR$/match/helpers.py" />
         <option value="$PROJECT_DIR$/match/models/event.py" />
         <option value="$PROJECT_DIR$/crawler/__init__.py" />
-        <option value="$PROJECT_DIR$/crawl.py" />
         <option value="$PROJECT_DIR$/crawler/main.py" />
         <option value="$PROJECT_DIR$/match/models/base.py" />
         <option value="$PROJECT_DIR$/webhook/views/webhook.py" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/welive/settings.py" />
+        <option value="$PROJECT_DIR$/crawl.py" />
       </list>
     </option>
   </component>
@@ -401,10 +400,9 @@
       <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49973017" weight="0.32745314" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.32745314" />
       <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4991699" visible="true" weight="0.2954796" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49614793" visible="true" weight="0.22910902" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49614793" visible="true" weight="0.23464306" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32982844" />
       <window_info id="Structure" order="1" sideWeight="0.50385207" side_tool="true" weight="0.21804096" />
       <window_info id="Favorites" order="2" sideWeight="0.50385207" side_tool="true" weight="0.21804096" />
@@ -415,6 +413,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -716,16 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crawl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crawler/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3120">
@@ -782,8 +771,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/welive/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="129" column="44" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+        <state relative-caret-position="391">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
